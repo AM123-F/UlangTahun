@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Selamat Ulang Tahun</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            overflow: hidden;
+            animation: backgroundAnimate 5s infinite alternate;
+        }
+
+        @keyframes backgroundAnimate {
+            0% { background: linear-gradient(45deg, #ff9a9e, #fad0c4); }
+            100% { background: linear-gradient(45deg, #ffecd2, #fcb69f); }
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            animation: bounceIn 1s ease-in-out;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        h1 {
+            color: #ff4081;
+            font-size: 2em;
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        p {
+            color: #333;
+            font-size: 1.2em;
+            margin: 10px 0 20px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .button {
+            padding: 12px 25px;
+            font-size: 1em;
+            background-color: #ff4081;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: transform 0.3s, background-color 0.3s;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            background-color: #ff79a5;
+        }
+
+        .sticker {
+            width: 120px;
+            margin: 20px auto;
+            cursor: pointer;
+            animation: rotate 2s infinite;
+        }
+
+        .fireworks {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background-image: url('https://img.icons8.com/emoji/96/fireworks-emoji.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0;
+            pointer-events: none;
+            animation: explode 1s forwards;
+        }
+
+        #gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        #gallery img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin: 5px;
+            border-radius: 10px;
+        }
+
+        #guessResult {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #ff4081;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0); }
+            50% { transform: rotate(15deg); }
+            100% { transform: rotate(0); }
+        }
+
+        @keyframes explode {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.5); }
+        }
+
+        video {
+            width: 100%;
+            border-radius: 10px;
+            display: none; /* Sembunyikan video secara default */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Halaman 1 -->
+        <div class="page active" id="page1">
+            <h1>🎉 Selamat Ulang Tahun Sayanggkuu! 🎉</h1>
+            <p>CIEEEE Makin Tua Aja Nicchh! 🎂</p>
+            <img src="https://img.icons8.com/emoji/96/birthday-cake-emoji.png" alt="Kue Ulang Tahun" class="sticker" onclick="showFireworks()">
+            <div class="fireworks" id="fireworks"></div>
+            <button class="button" onclick="nextPage()">Selanjutnya 🎈</button>
+        </div>
+
+        <!-- Halaman 2 -->
+        <div class="page" id="page2">
+            <h1>🌟 Harapan Bahagia! 🌟</h1>
+            <p>Semoga hari-harinya penuh dengan kebahagiaan dan canda tawa yaaa! 😄</p>
+            <img src="Balloons.png" alt="Balon" class="sticker">
+            <button class="button" onclick="nextPage()">Selanjutnya 🎁</button>
+        </div>
+
+        <!-- Halaman 3 - Galeri Foto Statis -->
+        <div class="page" id="page3">
+            <h1>📸 Fotonyaa Aii pilihh yangg inii ajaa yaa! 📸</h1>
+            <p>Lucuu lucuu semuaa😘</p>
+            <div id="gallery">
+                <img src="WhatsApp Image 2024-10-09 at 13.52.58_2334347c.jpg" alt="Foto 1">
+                <img src="WhatsApp Image 2024-10-26 at 23.17.40_8db353ff.jpg" alt="Foto 2">
+                <img src="WhatsApp Image 2024-10-26 at 23.17.40_d02a1833.jpg" alt="Foto 3">
+                <img src="WhatsApp Image 2024-10-26 at 23.17.42_3b7d852d.jpg" alt="Foto 4">
+                <img src="WhatsApp Image 2024-10-26 at 23.17.41_eb4ac697.jpg" alt="Foto 5">
+            </div>
+            <button class="button" onclick="nextPage()">Selanjutnya 🎈</button>
+        </div>
+
+        <!-- Halaman 4 - Lagu -->
+        <div class="page" id="page4">
+            <h1>🎶  Putar Lagunyaa yaaa 🎶</h1>
+            <p>Klik buatt mulaii musiknyaa! 🎵</p>
+            <button class="button" onclick="playMusic()">Putar Musik 🎵</button>
+            <button class="button" onclick="stopMusic()">Stop Music 🚫</button>
+
+            <button class="button" onclick="nextPage()">Lanjut </button>
+            <!-- Menambahkan video selfie -->
+            <audio id="birthdaySong" controls style="display:none;">
+                <source src="Jamrud - Selamat Ulang Tahun.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Halaman 5 - Ucapan dari Teman -->
+        <div class="page" id="page5">
+            <h1>💌 Ucapan dari Aiii! 💌</h1>
+            <p>Singkatt ajaa yaa disinii mahh</p>
+            <ul>
+                <li>Selamat ulang tahun sayanggkuu! Doa terbaikk buatt kamuu! 🎉</li>
+                <li>Semoga hari ini membawa kebahagiaann! 🥳</li>
+                <li>Selamat ulang tahun! Nikmati setiap momennya yaa, meskipunn tanpaa aiii! 🎂</li>
+            </ul>
+            <button class="button" onclick="nextPage()">Selanjutnya 🎈</button>
+        </div>
+        <div class="page" id="page6">
+            <h1>🎊 I lovee youu sayanggkuu❤️! 🎊</h1>
+            <p>Sekali lagi selamat ulang tahun yaa sayanggkuu 🎉</p>
+            <button class="button" onclick="endCelebration()">Akhiri 🌟</button>
+        </div>
+    </div>
+
+    <script>
+        function showFireworks() {
+            const fireworks = document.getElementById('fireworks');
+            fireworks.style.opacity = '1';
+            setTimeout(() => {
+                fireworks.style.opacity = '0';
+            }, 2000);
+        }
+
+        let currentPage = 1;
+
+        function nextPage() {
+            const currentPageElement = document.getElementById(`page${currentPage}`);
+            const nextPageElement = document.getElementById(`page${currentPage + 1}`);
+            if (nextPageElement) {
+                currentPageElement.classList.remove('active');
+                nextPageElement.classList.add('active');
+                currentPage++;
+            }
+        }
+
+        function playMusic() {
+            const audio = document.getElementById('birthdaySong');
+            audio.play();
+        }
+
+        function stopMusic() {
+            const audio = document.getElementById('birthdaySong');
+            audio.pause();
+            audio.currentTime = 0; // Reset music to the beginning
+        }
+
+        function endCelebration() {
+            stopMusic(); // Stop music when ending the celebration
+            alert("Terima kasih sudah merayakan bersama kami!"); // Display thank you message
+        }
+    </script>
+</body>
+</html>
